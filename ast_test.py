@@ -1,6 +1,7 @@
 # https://greentreesnakes.readthedocs.io/en/latest/manipulating.html
 import ast
 from sys import argv
+import pandas as pd 
 
 class FuncLister(ast.NodeVisitor):
     lst = []
@@ -12,7 +13,6 @@ class FuncLister(ast.NodeVisitor):
 
     def visit_Call(self, node):
         dct = node.__dict__["func"].__dict__
-        from pudb import set_trace
 
         if "id" in dct.keys():
             resp = (dct["lineno"], dct["col_offset"], "call", dct["id"])
@@ -67,5 +67,12 @@ X = FuncLister()
 X.visit(tree)
 df = X.output_DataFrame()
 df = X.filters(df, "name", "logger|str|flash|url_for|app|redirect|RevisedTextForm")
+df['file_name'] = str(argv[1])
 print(df)
-df.to_csv("sample.csv", index=False)
+from os import listdir
+try:
+    temp_df= pd.read_csv('output.csv')
+except:
+    temp_df = pd.DataFrame()
+temp_df = pd.concat([df,temp_df])
+temp_df.to_csv('output.csv', index=False)
