@@ -41,9 +41,6 @@ class FuncLister(ast.NodeVisitor):
     def visit_alias(self, node):
         self.generic_visit(node) 
 
-    def generic_visit(self, node):
-        self.generic_visit(node)
-
 
     def visit_ImportFrom(self, node):
         resp = (
