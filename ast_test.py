@@ -8,6 +8,43 @@ from os import listdir
 class FuncLister(ast.NodeVisitor):
     lst = []
 
+    def visit_Name(self, node):
+        self.generic_visit(node)
+
+    def visit_Attribute(self, node):
+        self.generic_visit(node)
+
+    def visit_Constant(self, node):
+        self.generic_visit(node)
+
+    def visit_arguments(self, node):
+        self.generic_visit(node) 
+
+    def visit_arg(self, node):
+        self.generic_visit(node)
+
+    def visit_If(self, node):
+        self.generic_visit(node)
+
+    def visit_Try(self, node):
+        self.generic_visit(node)
+
+    def visit_ExceptHandler(self, node):
+        self.generic_visit(node)
+
+    def visit_With(self, node):
+        self.generic_visit(node) 
+
+    def visit_Call(self, node):
+        self.generic_visit(node)
+
+    def visit_alias(self, node):
+        self.generic_visit(node) 
+
+    def generic_visit(self, node):
+        self.generic_visit(node)
+
+
     def visit_ImportFrom(self, node):
         resp = (
             node.lineno,
