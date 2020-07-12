@@ -1,7 +1,9 @@
 # https://greentreesnakes.readthedocs.io/en/latest/manipulating.html
 import ast
 from sys import argv
-import pandas as pd 
+import pandas as pd
+from os import listdir
+
 
 class FuncLister(ast.NodeVisitor):
     lst = []
@@ -9,6 +11,9 @@ class FuncLister(ast.NodeVisitor):
     def visit_FunctionDef(self, node):
         resp = (node.__dict__["lineno"], node.__dict__["col_offset"], "def", node.name)
         self.lst.append(resp)
+        docstring = self.get_docstring(node)
+        if docstring:
+            self.lst.append(docstring)
         self.generic_visit(node)
 
     def visit_Call(self, node):
@@ -37,6 +42,21 @@ class FuncLister(ast.NodeVisitor):
                 self.lst.append(resp)
         self.generic_visit(node)
 
+    def get_docstring(self, node):
+        "get the docstrings"
+        if (
+            isinstance(node, (ast.FunctionDef, ast.ClassDef, ast.Module))
+            and node.body
+            and isinstance(node.body[0], ast.Expr)
+            and isinstance(node.body[0].value, ast.Str)
+        ):
+            return (
+                node.lineno,
+                node.col_offset,
+                "docstring",
+                node.body[0].value.s,
+            )
+
     def filters(self, df, column, pattern):
         import pandas as pd
         import re
@@ -57,7 +77,6 @@ class FuncLister(ast.NodeVisitor):
         return df
 
 
-
 f = open(argv[1])
 data = f.read()
 f.close()
@@ -66,13 +85,14 @@ tree = ast.parse(data)
 X = FuncLister()
 X.visit(tree)
 df = X.output_DataFrame()
-df = X.filters(df, "name", "logger|str|flash|url_for|app|redirect|RevisedTextForm")
-df['file_name'] = str(argv[1])
+# df = X.filters(df, "name", "")
+df["file_name"] = str(argv[1])
+df.sort_values("line_no", inplace=True)
 print(df)
-from os import listdir
+
 try:
-    temp_df= pd.read_csv('output.csv')
+    temp_df = pd.read_csv("output.csv")
 except:
     temp_df = pd.DataFrame()
-temp_df = pd.concat([df,temp_df])
-temp_df.to_csv('output.csv', index=False)
+temp_df = pd.concat([df, temp_df])
+temp_df.to_csv("output.csv", index=False)
