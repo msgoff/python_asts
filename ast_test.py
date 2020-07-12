@@ -8,13 +8,50 @@ from os import listdir
 class FuncLister(ast.NodeVisitor):
     lst = []
 
-    def visit_Import(self, node):
-        resp = (node.lineno, node.col_offset, "import", node.names[0].name)
+    def visit_ImportFrom(self, node):
+        resp = (
+            node.lineno,
+            node.col_offset,
+            "importFrom",
+            (node.module, node.names[0].name),
+        )
         self.lst.append(resp)
         self.generic_visit(node)
 
+    def visit_Import(self, node):
+        print(node.names[0].__dict__)
+        if node.names[0].asname:
+            resp = (
+                node.lineno,
+                node.col_offset,
+                "import",
+                node.names[0].name + " as " + node.names[0].asname,
+            )
+        else:
+            resp = (node.lineno, node.col_offset, "import", node.names[0].name)
+        self.lst.append(resp)
+        self.generic_visit(node)
+
+    def visit_ClassDef(self, node):
+        resp = (
+            node.__dict__["lineno"],
+            node.__dict__["col_offset"],
+            "ClassDef",
+            node.name,
+        )
+        self.lst.append(resp)
+        docstring = self.get_docstring(node)
+        if docstring:
+            self.lst.append(docstring)
+        self.generic_visit(node)
+
     def visit_FunctionDef(self, node):
-        resp = (node.__dict__["lineno"], node.__dict__["col_offset"], "def", node.name)
+        resp = (
+            node.__dict__["lineno"],
+            node.__dict__["col_offset"],
+            "FunctionDef",
+            node.name,
+        )
         self.lst.append(resp)
         docstring = self.get_docstring(node)
         if docstring:
@@ -23,7 +60,6 @@ class FuncLister(ast.NodeVisitor):
 
     def visit_Call(self, node):
         dct = node.__dict__["func"].__dict__
-
         if "id" in dct.keys():
             resp = (dct["lineno"], dct["col_offset"], "call", dct["id"])
             self.lst.append(resp)
@@ -82,11 +118,14 @@ class FuncLister(ast.NodeVisitor):
         return df
 
 
-f = open(argv[1])
-data = f.read()
-f.close()
-tree = ast.parse(data)
+def read_file(file_name):
+    with open(file_name, "r") as f:
+        data = f.read()
+    return data
 
+
+data = read_file(argv[1])
+tree = ast.parse(data)
 X = FuncLister()
 X.visit(tree)
 df = X.output_DataFrame()
