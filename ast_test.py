@@ -8,6 +8,11 @@ from os import listdir
 class FuncLister(ast.NodeVisitor):
     lst = []
 
+    def visit_Import(self, node):
+        resp = (node.lineno, node.col_offset, "import", node.names[0].name)
+        self.lst.append(resp)
+        self.generic_visit(node)
+
     def visit_FunctionDef(self, node):
         resp = (node.__dict__["lineno"], node.__dict__["col_offset"], "def", node.name)
         self.lst.append(resp)
