@@ -23,7 +23,7 @@ RUN apt-get update && \
 # https://docs.docker.com/engine/reference/builder/#copy
 # requirements.txt contains a list of the Python packages needed for the PDG
 COPY requirements.txt /tmp
-
 RUN pip3 install -r /tmp/requirements.txt
 
+WORKDIR /opt
 COPY dot_file_from_df.py ast_test.py /opt/ 
