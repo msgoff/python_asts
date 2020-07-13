@@ -18,7 +18,7 @@ class FuncLister(ast.NodeVisitor):
         self.generic_visit(node)
 
     def visit_arguments(self, node):
-        self.generic_visit(node) 
+        self.generic_visit(node)
 
     def visit_arg(self, node):
         self.generic_visit(node)
@@ -33,14 +33,13 @@ class FuncLister(ast.NodeVisitor):
         self.generic_visit(node)
 
     def visit_With(self, node):
-        self.generic_visit(node) 
+        self.generic_visit(node)
 
     def visit_Call(self, node):
         self.generic_visit(node)
 
     def visit_alias(self, node):
-        self.generic_visit(node) 
-
+        self.generic_visit(node)
 
     def visit_ImportFrom(self, node):
         resp = (
@@ -157,6 +156,15 @@ def read_file(file_name):
         data = f.read()
     return data
 
+def df_query(query_string, df):
+    df[
+        df.apply(
+            lambda row: True
+            if re.findall(query_string, str(row.astype(str)), re.IGNORECASE)
+            else False,
+            axis=1,
+        )
+    ]
 
 data = read_file(argv[1])
 tree = ast.parse(data)
@@ -174,3 +182,5 @@ except:
     temp_df = pd.DataFrame()
 temp_df = pd.concat([df, temp_df])
 temp_df.to_csv("output.csv", index=False)
+
+
