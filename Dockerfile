@@ -16,6 +16,7 @@ RUN apt-get update && \
                python3-pip \
                python3-dev \
                build-essential  \
+               libgraphviz-dev \
                graphviz \
     && rm -rf /var/lib/apt/lists/*
 
