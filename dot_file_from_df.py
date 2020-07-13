@@ -1,7 +1,9 @@
 import pygraphviz as pgv
 import pandas as pd 
 
-df = pd.read_csv('/home/user/wipeq/output.csv')
+# read CSV file (argument 1) and produce DOT+PNG (argument 2)
+
+df = pd.read_csv(argv[1])
 G=pgv.AGraph(strict=False,directed=True)
 
 
@@ -19,6 +21,6 @@ while True:
     except StopIteration:
         break
 
-G.write("file.dot")`b`
+G.write(argv[2] + ".dot")`b`
 G.layout(prog='dot')
-G.draw('file.png') 
+G.draw(argv[2] + '.png') 
