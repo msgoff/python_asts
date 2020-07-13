@@ -21,6 +21,6 @@ while True:
     except StopIteration:
         break
 
-G.write(argv[2] + ".dot")`b`
+G.write(argv[2] + ".dot")
 G.layout(prog='dot')
 G.draw(argv[2] + '.png') 
