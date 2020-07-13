@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+
+from sys import argv
+
 import pygraphviz as pgv
 import pandas as pd 
 

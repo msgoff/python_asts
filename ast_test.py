@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # https://greentreesnakes.readthedocs.io/en/latest/manipulating.html
 import ast
 from sys import argv
