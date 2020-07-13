@@ -25,6 +25,4 @@ COPY requirements.txt /tmp
 
 RUN pip3 install -r /tmp/requirements.txt
 
-COPY ast_test.py /opt/ 
-
-
+COPY dot_file_from_df.py ast_test.py /opt/ 
