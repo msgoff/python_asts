@@ -6,6 +6,73 @@ from sys import argv
 import pandas as pd
 from os import listdir
 
+#def visit_alias(self,node): pass
+#def visit_arg(self,node): pass
+#def visit_arguments(self,node): pass
+#def visit_Assert(self,node): pass
+#def visit_Assign(self,node): pass
+#def visit_AsyncFor(self,node): pass
+#def visit_AsyncFunctionDef(self,node): pass
+#def visit_AsyncWith(self,node): pass
+#def visit_Attribute(self,node): pass
+#def visit_AugAssign(self,node): pass
+#def visit_Await(self,node): pass
+#def visit_BinOp(self,node): pass
+#def visit_BoolOp(self,node): pass
+#def visit_Bytes(self,node): pass
+#def visit_Call(self,node): pass
+#def visit_ClassDef(self,node): pass
+#def visit_Compare(self,node): pass
+#def visit_comprehension(self,node): pass
+#def visit_Constant(self,node): pass
+#def visit_Delete(self,node): pass
+#def visit_DictComp(self,node): pass
+#def visit_Dict(self,node): pass
+#def visit_ExceptHandler(self,node): pass
+#def visit_Exec(self,node): pass
+#def visit_Expression(self,node): pass
+#def visit_Expr(self,node): pass
+#def visit_ExtSlice(self,node): pass
+#def visit_For(self,node): pass
+#def visit_FunctionDef(self,node): pass
+#def visit_GeneratorExp(self,node): pass
+#def visit_Global(self,node): pass
+#def visit_IfExp(self,node): pass
+#def visit_If(self,node): pass
+#def visit_ImportFrom(self,node): pass
+#def visit_Import(self,node): pass
+#def visit_Index(self,node): pass
+#def visit_Interactive(self,node): pass
+#def visit_keyword(self,node): pass
+#def visit_Lambda(self,node): pass
+#def visit_ListComp(self,node): pass
+#def visit_List(self,node): pass
+#def visit_Module(self,node): pass
+#def visit_NameConstant(self,node): pass
+#def visit_Name(self,node): pass
+#def visit_Nonlocal(self,node): pass
+#def visit_Num(self,node): pass
+#def visit_Print(self,node): pass
+#def visit_Raise(self,node): pass
+#def visit_Repr(self,node): pass
+#def visit_Return(self,node): pass
+#def visit_SetComp(self,node): pass
+#def visit_Set(self,node): pass
+#def visit_Slice(self,node): pass
+#def visit_Starred(self,node): pass
+#def visit_Str(self,node): pass
+#def visit_Subscript(self,node): pass
+#def visit_Suite(self,node): pass
+#def visit_TryExcept(self,node): pass
+#def visit_TryFinally(self,node): pass
+#def visit_Try(self,node): pass
+#def visit_Tuple(self,node): pass
+#def visit_UnaryOp(self,node): pass
+#def visit_While(self,node): pass
+#def visit_With(self,node): pass
+#def visit_YieldFrom(self,node): pass
+#def visit_Yield(self,node): pass
+
 
 class FuncLister(ast.NodeVisitor):
     lst = []
