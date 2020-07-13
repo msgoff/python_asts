@@ -177,10 +177,10 @@ df.sort_values("line_no", inplace=True)
 print(df)
 
 try:
-    temp_df = pd.read_csv("output.csv")
+    temp_df = pd.read_csv(argv[2])
 except:
     temp_df = pd.DataFrame()
 temp_df = pd.concat([df, temp_df])
-temp_df.to_csv("output.csv", index=False)
+temp_df.to_csv(argv[2], index=False)
 
 
