@@ -219,11 +219,18 @@ class FuncLister(ast.NodeVisitor):
         df.columns = ["line_no", "col_offset", "type", "name"]
         return df
 
+def read_file(filename):
+    #https://github.com/jendrikseipp/vulture)
+    # vulture - Find dead code.
+    # Python >= 3.2
+    import tokenize
+    try:
+        # Use encoding detected by tokenize.detect_encoding().
+        with tokenize.open(filename) as f:
+            return f.read()
+    except (SyntaxError, UnicodeDecodeError) as err:
+        print(err)
 
-def read_file(file_name):
-    with open(file_name, "r") as f:
-        data = f.read()
-    return data
 
 def df_query(query_string, df):
     df[
