@@ -181,7 +181,7 @@ class FuncLister(ast.NodeVisitor):
     def get_docstring(self, node):
         "get the docstrings"
         if (
-            isinstance(node, (ast.FunctionDef, ast.ClassDef, ast.Module))
+            isinstance(node, (ast.FunctionDef, ast.ClassDef, ast.Module, ast.AsyncFunctionDef))
             and node.body
             and isinstance(node.body[0], ast.Expr)
             and isinstance(node.body[0].value, ast.Str)
