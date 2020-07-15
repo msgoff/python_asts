@@ -22,7 +22,7 @@ X = df.itertuples()
 while True:
     try:
         resp = next(X)[3:]
-        G.add_edge(resp[2],resp[1],Type=resp[0])
+        G.add_edge(resp[2],resp[1],label=resp[0])
     except StopIteration:
         break
 
