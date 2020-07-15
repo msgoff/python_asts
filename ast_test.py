@@ -21,7 +21,6 @@ from os import listdir
 #def visit_BoolOp(self,node): pass
 #def visit_Bytes(self,node): pass
 #def visit_Call(self,node): pass
-#def visit_ClassDef(self,node): pass
 #def visit_Compare(self,node): pass
 #def visit_comprehension(self,node): pass
 #def visit_Constant(self,node): pass
@@ -34,13 +33,10 @@ from os import listdir
 #def visit_Expr(self,node): pass
 #def visit_ExtSlice(self,node): pass
 #def visit_For(self,node): pass
-#def visit_FunctionDef(self,node): pass
 #def visit_GeneratorExp(self,node): pass
 #def visit_Global(self,node): pass
 #def visit_IfExp(self,node): pass
 #def visit_If(self,node): pass
-#def visit_ImportFrom(self,node): pass
-#def visit_Import(self,node): pass
 #def visit_Index(self,node): pass
 #def visit_Interactive(self,node): pass
 #def visit_keyword(self,node): pass
@@ -102,9 +98,6 @@ class FuncLister(ast.NodeVisitor):
         self.generic_visit(node)
 
     def visit_With(self, node):
-        self.generic_visit(node)
-
-    def visit_Call(self, node):
         self.generic_visit(node)
 
     def visit_alias(self, node):
@@ -220,7 +213,7 @@ class FuncLister(ast.NodeVisitor):
         return df
 
 def read_file(filename):
-    #https://github.com/jendrikseipp/vulture)
+    #https://github.com/jendrikseipp/vulture
     # vulture - Find dead code.
     # Python >= 3.2
     import tokenize
@@ -241,22 +234,26 @@ def df_query(query_string, df):
             axis=1,
         )
     ]
+    return df
 
-data = read_file(argv[1])
-tree = ast.parse(data)
-X = FuncLister()
-X.visit(tree)
-df = X.output_DataFrame()
-# df = X.filters(df, "name", "")
-df["file_name"] = str(argv[1])
-df.sort_values("line_no", inplace=True)
-print(df)
 
-try:
-    temp_df = pd.read_csv(argv[2])
-except:
-    temp_df = pd.DataFrame()
-temp_df = pd.concat([df, temp_df])
-temp_df.to_csv(argv[2], index=False)
+if __name__ == '__main__':
+
+    data = read_file(argv[1])
+    tree = ast.parse(data)
+    X = FuncLister()
+    X.visit(tree)
+    df = X.output_DataFrame()
+    # df = X.filters(df, "name", "")
+    df["file_name"] = str(argv[1])
+    df.sort_values("line_no", inplace=True)
+    print(df)
+
+    try:
+        temp_df = pd.read_csv(argv[2])
+    except:
+        temp_df = pd.DataFrame()
+    temp_df = pd.concat([df, temp_df])
+    temp_df.to_csv(argv[2], index=False)
 
 
