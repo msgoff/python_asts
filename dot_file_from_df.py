@@ -10,10 +10,11 @@ import pandas as pd
 df = pd.read_csv(argv[1])
 G=pgv.AGraph(strict=False,directed=True)
 
-
+# file name is a node
 for f_name in set(df['file_name'].tolist()):
     G.add_node(f_name)
 
+# function name is a node
 for func_name in set(df['name'].tolist()):
     G.add_node(func_name)
 
