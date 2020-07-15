@@ -13,253 +13,242 @@ from os import listdir
 class FuncLister(ast.NodeVisitor):
     lst = []
 
+    def node_information(self,node,node_type,node_name):
+        response =(
+            node.lineno,
+            node.col_offset,
+            node_type,
+            node_name 
+            )
+        return response
+
     def visit_arg(self,node): 
-        print(node)
+        if node.annotation is None:
+            node_type = "arg"
+            resp = self.node_information(node,node_type,node.arg)
+            self.lst.append(resp)
+        else:
+            print(node.__dict__)
         self.generic_visit(node)
 
     def visit_arguments(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_Assert(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_Assign(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_AsyncFor(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_AsyncFunctionDef(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_AsyncWith(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_AugAssign(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_Await(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_BinOp(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_BoolOp(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_Bytes(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_Call(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_Compare(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_comprehension(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_Delete(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_DictComp(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_Dict(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_ExceptHandler(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_Exec(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_Expression(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_Expr(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_ExtSlice(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_For(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_GeneratorExp(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_Global(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_IfExp(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_Index(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_Interactive(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_keyword(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_Lambda(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_ListComp(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_List(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_Module(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_NameConstant(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_Nonlocal(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_Num(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_Print(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_Raise(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_Repr(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_Return(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_SetComp(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_Set(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_Slice(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_Starred(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_Str(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_Subscript(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_Suite(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_TryExcept(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_TryFinally(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_Tuple(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_UnaryOp(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_While(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_With(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
-
 
     def visit_YieldFrom(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
-
     def visit_Yield(self,node): 
-        print(node)
+        print(node.__dict__)
         self.generic_visit(node)
 
     def visit_ImportFrom(self, node):
@@ -288,8 +277,8 @@ class FuncLister(ast.NodeVisitor):
 
     def visit_ClassDef(self, node):
         resp = (
-            node.__dict__["lineno"],
-            node.__dict__["col_offset"],
+            node.lineno,
+            node.col_offset,
             "ClassDef",
             node.name,
         )
@@ -301,8 +290,8 @@ class FuncLister(ast.NodeVisitor):
 
     def visit_FunctionDef(self, node):
         resp = (
-            node.__dict__["lineno"],
-            node.__dict__["col_offset"],
+            node.lineno,
+            node.col_offset,
             "FunctionDef",
             node.name,
         )
