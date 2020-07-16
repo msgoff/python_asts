@@ -11,7 +11,15 @@ from os import listdir
 
 
 class FuncLister(ast.NodeVisitor):
-    lst = []
+    
+
+    def __init__(self):
+        import inspect
+        import re
+        self.inspect = inspect
+        self.re = re
+        self.lst = []
+
 
     def node_information(self,node,node_type,node_name):
         response =(
@@ -22,233 +30,452 @@ class FuncLister(ast.NodeVisitor):
             )
         return response
 
+    
     def visit_arg(self,node): 
         if node.annotation is None:
             node_type = "arg"
             resp = self.node_information(node,node_type,node.arg)
             self.lst.append(resp)
         else:
-            print(node.__dict__)
+            print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_arguments(self,node): 
-        print(node.__dict__)
+   
+    def visit_arguments(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned =self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Assert(self,node): 
-        print(node.__dict__)
+    def visit_Assert(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Assign(self,node): 
-        print(node.__dict__)
+    def visit_Assign(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = str(current_function_name_cleaned)
+        resp = self.node_information(node,node_type,(node.targets,node.value))
+        self.lst.append(resp)
         self.generic_visit(node)
 
-    def visit_AsyncFor(self,node): 
-        print(node.__dict__)
+    def visit_AsyncFor(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_AsyncFunctionDef(self,node): 
-        print(node.__dict__)
+    def visit_AsyncFunctionDef(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_AsyncWith(self,node): 
-        print(node.__dict__)
+    def visit_AsyncWith(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_AugAssign(self,node): 
-        print(node.__dict__)
+    def visit_AugAssign(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Await(self,node): 
-        print(node.__dict__)
+    def visit_Await(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_BinOp(self,node): 
-        print(node.__dict__)
+    def visit_BinOp(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        resp = self.node_information(node,node_type,(node.left,node.op,node.right))
+        self.lst.append(resp)
         self.generic_visit(node)
 
-    def visit_BoolOp(self,node): 
-        print(node.__dict__)
+    def visit_BoolOp(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Bytes(self,node): 
-        print(node.__dict__)
+    def visit_Bytes(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Call(self,node): 
-        print(node.__dict__)
+    def visit_Compare(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Compare(self,node): 
-        print(node.__dict__)
+    def visit_comprehension(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_comprehension(self,node): 
-        print(node.__dict__)
+    def visit_Delete(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Delete(self,node): 
-        print(node.__dict__)
+    def visit_DictComp(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+         
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_DictComp(self,node): 
-        print(node.__dict__)
+    def visit_Dict(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Dict(self,node): 
-        print(node.__dict__)
+    def visit_ExceptHandler(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_ExceptHandler(self,node): 
-        print(node.__dict__)
+    def visit_Exec(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Exec(self,node): 
-        print(node.__dict__)
+    def visit_Expression(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Expression(self,node): 
-        print(node.__dict__)
+    def visit_Expr(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Expr(self,node): 
-        print(node.__dict__)
+    def visit_ExtSlice(self,node):
+        import inspect
+        
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_ExtSlice(self,node): 
-        print(node.__dict__)
+    def visit_For(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_For(self,node): 
-        print(node.__dict__)
+    def visit_GeneratorExp(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_GeneratorExp(self,node): 
-        print(node.__dict__)
+    def visit_Global(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Global(self,node): 
-        print(node.__dict__)
+    def visit_IfExp(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_IfExp(self,node): 
-        print(node.__dict__)
+    def visit_Index(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Index(self,node): 
-        print(node.__dict__)
+    def visit_Interactive(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Interactive(self,node): 
-        print(node.__dict__)
+    def visit_keyword(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_keyword(self,node): 
-        print(node.__dict__)
+    def visit_Lambda(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Lambda(self,node): 
-        print(node.__dict__)
+    def visit_ListComp(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_ListComp(self,node): 
-        print(node.__dict__)
+    def visit_List(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_List(self,node): 
-        print(node.__dict__)
+    def visit_Module(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Module(self,node): 
-        print(node.__dict__)
+    def visit_NameConstant(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_NameConstant(self,node): 
-        print(node.__dict__)
+    def visit_Nonlocal(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Nonlocal(self,node): 
-        print(node.__dict__)
+    def visit_Num(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Num(self,node): 
-        print(node.__dict__)
+    def visit_Print(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Print(self,node): 
-        print(node.__dict__)
+    def visit_Raise(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Raise(self,node): 
-        print(node.__dict__)
+    def visit_Repr(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Repr(self,node): 
-        print(node.__dict__)
+    def visit_Return(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Return(self,node): 
-        print(node.__dict__)
+    def visit_SetComp(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_SetComp(self,node): 
-        print(node.__dict__)
+    def visit_Set(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Set(self,node): 
-        print(node.__dict__)
+    def visit_Slice(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Slice(self,node): 
-        print(node.__dict__)
+    def visit_Starred(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Starred(self,node): 
-        print(node.__dict__)
+    def visit_Str(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Str(self,node): 
-        print(node.__dict__)
+    def visit_Subscript(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Subscript(self,node): 
-        print(node.__dict__)
+    def visit_Suite(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Suite(self,node): 
-        print(node.__dict__)
+    def visit_TryExcept(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_TryExcept(self,node): 
-        print(node.__dict__)
+    def visit_TryFinally(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_TryFinally(self,node): 
-        print(node.__dict__)
+    def visit_Tuple(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_Tuple(self,node): 
-        print(node.__dict__)
+    def visit_UnaryOp(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_UnaryOp(self,node): 
-        print(node.__dict__)
+    def visit_While(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_While(self,node): 
-        print(node.__dict__)
+    def visit_With(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_With(self,node): 
-        print(node.__dict__)
+    def visit_YieldFrom(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type) 
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
-    def visit_YieldFrom(self,node): 
-        print(node.__dict__)
-        self.generic_visit(node)
-
-    def visit_Yield(self,node): 
-        print(node.__dict__)
+    def visit_Yield(self,node):
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split('_',current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        print(node_type)
+        print('\t',node.__dict__)
         self.generic_visit(node)
 
     def visit_ImportFrom(self, node):
@@ -262,7 +489,7 @@ class FuncLister(ast.NodeVisitor):
         self.generic_visit(node)
 
     def visit_Import(self, node):
-        print(node.names[0].__dict__)
+       #print(node.names[0].__dict__)
         if node.names[0].asname:
             resp = (
                 node.lineno,
@@ -347,7 +574,7 @@ class FuncLister(ast.NodeVisitor):
 
         df.loc[:, column] = df.loc[:, column][
             df.loc[:, column].apply(
-                lambda x: True if not re.findall(pattern, str(x)) else False
+                lambda x: True if not self.re.findall(pattern, str(x)) else False
             )
         ]
         df.dropna(subset=[column], inplace=True)
@@ -374,6 +601,7 @@ def read_file(filename):
 
 
 def df_query(query_string, df):
+    import re
     df[
         df.apply(
             lambda row: True
