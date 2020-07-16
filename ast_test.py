@@ -587,17 +587,7 @@ class FuncLister(ast.NodeVisitor):
         df.columns = ["line_no", "col_offset", "type", "name"]
         return df
 
-def read_file(filename):
-    #https://github.com/jendrikseipp/vulture
-    # vulture - Find dead code.
-    # Python >= 3.2
-    import tokenize
-    try:
-        # Use encoding detected by tokenize.detect_encoding().
-        with tokenize.open(filename) as f:
-            return f.read()
-    except (SyntaxError, UnicodeDecodeError) as err:
-        print(err)
+
 
 
 def df_query(query_string, df):
@@ -614,7 +604,8 @@ def df_query(query_string, df):
 
 
 if __name__ == '__main__':
-
+    from file_utils import read_file
+    
     data = read_file(argv[1])
     tree = ast.parse(data)
     X = FuncLister()
@@ -624,7 +615,6 @@ if __name__ == '__main__':
     df["file_name"] = str(argv[1])
     df.sort_values("line_no", inplace=True)
     print(df)
-
     try:
         temp_df = pd.read_csv(argv[2])
     except:
