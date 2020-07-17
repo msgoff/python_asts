@@ -480,8 +480,20 @@ if __name__ == "__main__":
 
     else:
         import re
+        import time
+        import os
+        import shutil
 
         exclude = ["venv/"]
+        output_file_name = "output.csv"
+        # if output.csv previously exists
+        if os.path.isfile(output_file_name):
+            shutil.copy(
+                "{}".format(output_file_name),
+                "{}_{}.csv".format(output_file_name, time.time()),
+            )
+            os.unlink(output_file_name)
+
         to_be_processed = []
         files = [x for x in listfiles(".") if x.endswith(".py")]
         for file_name in files:
@@ -491,4 +503,8 @@ if __name__ == "__main__":
                     ignore = True
             if not ignore:
                 to_be_processed.append(file_name)
-        print(to_be_processed)
+        for file_name in to_be_processed:
+            try:
+                process_file(file_name, output_file_name)
+            except Exception as err:
+                print(err)

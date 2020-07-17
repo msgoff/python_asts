@@ -42,14 +42,15 @@ def process_file(file_name, output_file):
     X = FuncLister()
     X.visit(tree)
     df = X.output_DataFrame()
-    # df = X.filters(df, "name", "")
-    df["file_name"] = str(file_name)
-    df.sort_values("line_no", inplace=True)
-    print(df)
-    try:
-        temp_df = pd.read_csv(output_file)
-    except:
-        temp_df = pd.DataFrame()
-    temp_df = pd.concat([df, temp_df])
-    temp_df.sort_values(["file_name", "line_no", "col_offset"], inplace=True)
-    temp_df.to_csv(output_file, index=False)
+    if len(df) > 0:
+        # df = X.filters(df, "name", "")
+        df["file_name"] = str(file_name)
+        df.sort_values("line_no", inplace=True)
+        print(df)
+        try:
+            temp_df = pd.read_csv(output_file)
+        except:
+            temp_df = pd.DataFrame()
+            temp_df = pd.concat([df, temp_df])
+            temp_df.sort_values(["file_name", "line_no", "col_offset"], inplace=True)
+            temp_df.to_csv(output_file, index=False)
