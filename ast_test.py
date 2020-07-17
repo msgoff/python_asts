@@ -175,11 +175,13 @@ class FuncLister(ast.NodeVisitor):
 
     @print_func_name
     def visit_GeneratorExp(self, node):
+
         print("\t", node.__dict__)
         self.generic_visit(node)
 
     @print_func_name
     def visit_Global(self, node):
+        print("*" * 50)
         print("\t", node.__dict__)
         self.generic_visit(node)
 
@@ -486,6 +488,7 @@ if __name__ == "__main__":
 
         exclude = ["venv/"]
         output_file_name = "output.csv"
+        project_path = "."
         # if output.csv previously exists
         if os.path.isfile(output_file_name):
             shutil.copy(
@@ -495,7 +498,7 @@ if __name__ == "__main__":
             os.unlink(output_file_name)
 
         to_be_processed = []
-        files = [x for x in listfiles(".") if x.endswith(".py")]
+        files = [x for x in listfiles(project_path) if x.endswith(".py")]
         for file_name in files:
             ignore = False
             for path_to_exclude in exclude:
