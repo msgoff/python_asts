@@ -51,4 +51,5 @@ def process_file(file_name, output_file):
     except:
         temp_df = pd.DataFrame()
     temp_df = pd.concat([df, temp_df])
+    temp_df.sort_values(['line_no','col_offset'],inplace=True)
     temp_df.to_csv(output_file, index=False)
