@@ -57,7 +57,6 @@ class FuncLister(ast.NodeVisitor):
         print("\t", node.__dict__)
         self.generic_visit(node)
 
-    @print_func_name
     def visit_Assign(self, node):
         import inspect
         import re
@@ -156,9 +155,13 @@ class FuncLister(ast.NodeVisitor):
         print("\t", node.__dict__)
         self.generic_visit(node)
 
-    @print_func_name
+    
     def visit_Expr(self, node):
-        print("\t", node.__dict__)
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split("_", current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        resp = self.node_information(node, node_type, type(node.value))
+        self.lst.append(resp)
         self.generic_visit(node)
 
     @print_func_name
@@ -257,9 +260,13 @@ class FuncLister(ast.NodeVisitor):
         print("\t", node.__dict__)
         self.generic_visit(node)
 
-    @print_func_name
+
     def visit_Return(self, node):
-        print("\t", node.__dict__)
+        current_function_name = self.inspect.currentframe().f_code.co_name
+        current_function_name_cleaned = self.re.split("_", current_function_name)[-1]
+        node_type = current_function_name_cleaned
+        resp = self.node_information(node, node_type, type(node.value))
+        self.lst.append(resp)
         self.generic_visit(node)
 
     @print_func_name
