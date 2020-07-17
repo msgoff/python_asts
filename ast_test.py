@@ -467,19 +467,12 @@ def df_query(query_string, df):
 
 if __name__ == "__main__":
     from file_utils import read_file
+    from file_utils import listfiles
+    from file_utils import process_file
 
-    data = read_file(argv[1])
-    tree = ast.parse(data)
-    X = FuncLister()
-    X.visit(tree)
-    df = X.output_DataFrame()
-    # df = X.filters(df, "name", "")
-    df["file_name"] = str(argv[1])
-    df.sort_values("line_no", inplace=True)
-    print(df)
-    try:
-        temp_df = pd.read_csv(argv[2])
-    except:
-        temp_df = pd.DataFrame()
-    temp_df = pd.concat([df, temp_df])
-    temp_df.to_csv(argv[2], index=False)
+    if len(argv) > 1:
+        process_file(argv[1], argv[2])
+
+    else:
+        files = [x for x in listfiles(".") if x.endswith(".py")]
+        print(files)
