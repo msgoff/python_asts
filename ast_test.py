@@ -155,7 +155,6 @@ class FuncLister(ast.NodeVisitor):
         print("\t", node.__dict__)
         self.generic_visit(node)
 
-    
     def visit_Expr(self, node):
         current_function_name = self.inspect.currentframe().f_code.co_name
         current_function_name_cleaned = self.re.split("_", current_function_name)[-1]
@@ -259,7 +258,6 @@ class FuncLister(ast.NodeVisitor):
     def visit_Repr(self, node):
         print("\t", node.__dict__)
         self.generic_visit(node)
-
 
     def visit_Return(self, node):
         current_function_name = self.inspect.currentframe().f_code.co_name
@@ -481,5 +479,16 @@ if __name__ == "__main__":
         process_file(argv[1], argv[2])
 
     else:
+        import re
+
+        exclude = ["venv/"]
+        to_be_processed = []
         files = [x for x in listfiles(".") if x.endswith(".py")]
-        print(files)
+        for file_name in files:
+            ignore = False
+            for path_to_exclude in exclude:
+                if re.findall(path_to_exclude, file_name):
+                    ignore = True
+            if not ignore:
+                to_be_processed.append(file_name)
+        print(to_be_processed)
