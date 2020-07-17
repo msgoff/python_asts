@@ -488,7 +488,7 @@ if __name__ == "__main__":
 
         exclude = ["venv/"]
         output_file_name = "output.csv"
-        project_path = "."
+        project_path = "/home/user/Desktop/pycallgraph/pycallgraph/"
         # if output.csv previously exists
         if os.path.isfile(output_file_name):
             shutil.copy(
