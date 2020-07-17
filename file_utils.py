@@ -33,6 +33,10 @@ def get_file_type(filename):
 
 
 def process_file(file_name, output_file):
+    import ast
+    from ast_test import FuncLister
+    import pandas as pd
+
     data = read_file(file_name)
     tree = ast.parse(data)
     X = FuncLister()
