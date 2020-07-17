@@ -53,3 +53,10 @@ def process_file(file_name, output_file):
     temp_df = pd.concat([df, temp_df])
     temp_df.sort_values(["file_name", "line_no", "col_offset"], inplace=True)
     temp_df.to_csv(output_file, index=False)
+
+def read_config():
+    import yaml 
+    with open('config.yaml', 'r') as f: 
+        config = yaml.load(f) 
+    if config:
+        return config

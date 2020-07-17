@@ -476,7 +476,7 @@ if __name__ == "__main__":
     from file_utils import read_file
     from file_utils import listfiles
     from file_utils import process_file
-
+    from file_utils import read_config
     if len(argv) > 1:
         process_file(argv[1], argv[2])
 
@@ -485,11 +485,12 @@ if __name__ == "__main__":
         import time
         import os
         import shutil
+        config =read_config()
+        exclude = config['exclude']['path']       
+        output_file_name = config['output_file_name'][0]
+        project_path = config['project_path'][0]
 
-        exclude = ["venv/"]
-        output_file_name = "output.csv"
-        project_path = "/home/user/Desktop/pycallgraph/pycallgraph/"
-        # if output.csv previously exists
+        # if output_file_name previously exists
         if os.path.isfile(output_file_name):
             shutil.copy(
                 "{}".format(output_file_name),

@@ -1,0 +1,9 @@
+exclude:
+        path: 
+                - "venv"
+                - "test"
+project_path:
+        - "/home/user/Desktop/python_asts"
+
+output_file_name:
+        - "output.csv"
