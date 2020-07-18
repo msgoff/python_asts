@@ -1,9 +1,8 @@
 exclude:
         path: 
                 - "venv"
-                - "test"
 project_path:
-        - "/home/user/Desktop/python_asts"
+        - "/media/user/8ab25915-eb0d-4df8-a743-41007ab5148c/pycallgraph/"
 
 output_file_name:
         - "output.csv"

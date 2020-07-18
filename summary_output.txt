@@ -1,0 +1,86 @@
+open                                 20
+PyCallGraph                          18
+Config                               17
+GraphvizOutput                       14
+len                                  14
+                                     ..
+self.disable                          1
+proc.communicate                      1
+group_none                            1
+profile                               1
+test_trace_decorator_gephi_output     1
+Name: name, Length: 298, dtype: int64 
+
+
+self.run("regexp_grouped.png", Config(groups=True)) 
+
+ ************************************************** 
+
+self.run("regexp_ungrouped.png", Config(groups=False)) 
+
+ ************************************************** 
+
+config = Config() 
+
+ ************************************************** 
+
+config = Config(max_depth=1) 
+
+ ************************************************** 
+
+pycallgraph = PyCallGraph(output=graphviz, config=Config(include_stdlib=True)) 
+
+ ************************************************** 
+
+config = Config() 
+
+ ************************************************** 
+
+config = Config() 
+
+ ************************************************** 
+
+config = Config() 
+
+ ************************************************** 
+
+config = Config(include_stdlib=True) 
+
+ ************************************************** 
+
+config = Config(include_stdlib=True) 
+
+ ************************************************** 
+
+config = Config(include_stdlib=True) 
+
+ ************************************************** 
+
+class Config(object): 
+
+ ************************************************** 
+
+self.config = config or Config() 
+
+ ************************************************** 
+
+return Config() 
+
+ ************************************************** 
+
+assert Config().groups 
+
+ ************************************************** 
+
+assert Config(groups=False).groups is False 
+
+ ************************************************** 
+
+Output().set_config(Config()) 
+
+ ************************************************** 
+
+trace_processor.config = Config(include_stdlib=include_stdlib) 
+
+ ************************************************** 
+

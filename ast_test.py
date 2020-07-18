@@ -509,6 +509,7 @@ if __name__ == "__main__":
                 to_be_processed.append(file_name)
         for file_name in to_be_processed:
             try:
+                #print(file_name)
                 process_file(file_name, output_file_name)
             except Exception as err:
                 print(err)
