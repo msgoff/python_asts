@@ -1,10 +1,28 @@
-def listfiles(folder):
+def listfiles(folder, file_type=False, skip_venv=True):
     import os
+    import re
 
     for root, folders, files in os.walk(folder):
         for filename in folders + files:
-            if filename.endswith(".py"):
-                yield os.path.join(root, filename)
+            if bool(skip_venv):
+                # need a better test for python venv
+                if not re.findall(
+                    r"/venv/bin/|/python\d+.*?/site-packages|/lib/python\d+.\d+",
+                    root + filename,
+                ):
+                    if bool(file_type):
+                        if bool(filename.endswith(file_type)):
+                            yield os.path.join(root, filename)
+                    else:
+                        if not os.path.isdir(root + filename):
+                            yield os.path.join(root, filename)
+            else:
+                if bool(file_type):
+                    if bool(filename.endswith(file_type)):
+                        yield os.path.join(root, filename)
+                else:
+                    if not os.path.isdir(root + filename):
+                        yield os.path.join(root, filename)
 
 
 def read_file(filename):
@@ -32,31 +50,40 @@ def get_file_type(filename):
     return mime_type
 
 
-def process_file(file_name, output_file):
-    import ast
-    from ast_test import FuncLister
-    import pandas as pd
-
-    data = read_file(file_name)
-    tree = ast.parse(data)
-    X = FuncLister()
-    X.visit(tree)
-    df = X.output_DataFrame()
-    # df = X.filters(df, "name", "")
-    df["file_name"] = str(file_name)
-    df.sort_values("line_no", inplace=True)
-    print(df)
+def get_file_checksum(file_name):
     try:
-        temp_df = pd.read_csv(output_file)
-    except:
-        temp_df = pd.DataFrame()
-    temp_df = pd.concat([df, temp_df])
-    temp_df.sort_values(["file_name", "line_no", "col_offset"], inplace=True)
-    temp_df.to_csv(output_file, index=False)
+        import hashlib
 
-def read_config():
-    import yaml 
-    with open('config.yaml', 'r') as f: 
-        config = yaml.load(f) 
-    if config:
-        return config
+        f = open(file_name, "rb")
+        data = f.read()
+        f.close()
+        m = hashlib.md5()
+        m.update(data)
+        return {file_name: m.hexdigest()}
+    except Exception as e:
+        print(e)
+
+
+def mkdir(path):
+    import os
+
+    try:
+        os.mkdir(path)
+    except Exception as e:
+        print(e)
+
+
+def copy_file_named_checksum(file_name, folder_name, file_type):
+    import os
+    import shutil
+
+    new_file_name = list(get_file_checksum(file_name).values())[0] + ".{}".format(
+        file_type
+    )
+    cwd = os.getcwd()
+    copy_path = cwd + "\\" + folder_name + new_file_name
+    try:
+        print(file_name, copy_path)
+        shutil.copy(file_name, copy_path)
+    except Exception as e:
+        print(e)
