@@ -23,8 +23,29 @@ def listfiles(folder, file_type=False, skip_venv=True):
                 else:
                     if not os.path.isdir(root + filename):
                         yield os.path.join(root, filename)
+def read_config():
+    import yaml 
+    with open('config.yaml', 'r') as f: 
+        config = yaml.load(f) 
+    if config:
+        return config
 
+def process_file(file_name, output_file):
+    import ast
+    from ast_test import FuncLister
+    import pandas as pd
 
+    data = read_file(file_name)
+    tree = ast.parse(data)
+    X = FuncLister()
+    X.visit(tree)
+    df = X.output_DataFrame()
+    # df = X.filters(df, "name", "")
+    df["file_name"] = str(file_name)
+    df.sort_values("line_no", inplace=True)
+    print(df)
+
+    
 def read_file(filename):
     # https://github.com/jendrikseipp/vulture
     # vulture - Find dead code.
