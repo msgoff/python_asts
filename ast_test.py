@@ -490,14 +490,6 @@ if __name__ == "__main__":
         output_file_name = config['output_file_name'][0]
         project_path = config['project_path'][0]
 
-        # if output_file_name previously exists
-        if os.path.isfile(output_file_name):
-            shutil.copy(
-                "{}".format(output_file_name),
-                "{}_{}.csv".format(output_file_name, time.time()),
-            )
-            os.unlink(output_file_name)
-
         to_be_processed = []
         files = [x for x in listfiles(project_path) if x.endswith(".py")]
         for file_name in files:
@@ -508,6 +500,13 @@ if __name__ == "__main__":
             if not ignore:
                 to_be_processed.append(file_name)
         for file_name in to_be_processed:
+            # if output_file_name previously exists
+            if os.path.isfile(output_file_name):
+                shutil.copy(
+                    "{}".format(output_file_name),
+                    "{}_{}.csv".format(output_file_name, time.time()),
+                )
+                os.unlink(output_file_name)
             try:
                 #print(file_name)
                 process_file(file_name, output_file_name)

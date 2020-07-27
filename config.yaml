@@ -2,7 +2,7 @@ exclude:
         path: 
                 - "venv"
 project_path:
-        - "/media/user/8ab25915-eb0d-4df8-a743-41007ab5148c/pycallgraph/"
+        - "/home/user/sympy/build/lib/"
 
 output_file_name:
         - "output.csv"

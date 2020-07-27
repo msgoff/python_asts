@@ -43,8 +43,8 @@ def process_file(file_name, output_file):
     # df = X.filters(df, "name", "")
     df["file_name"] = str(file_name)
     df.sort_values("line_no", inplace=True)
-    print(df)
-
+    df.to_csv(output_file,index=False)
+    print(df.head())
     
 def read_file(filename):
     # https://github.com/jendrikseipp/vulture
