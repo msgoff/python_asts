@@ -53,6 +53,12 @@ def process_file(file_name, output_file):
             lambda x: True if not re.findall("Str|docstring|BinOp", str(x)) else False
         )
     ]
+    
+    df = df[
+        df["type"].apply(
+            lambda x: True if  re.findall("call", str(x)) else False
+        )
+    ]
     df.to_csv(output_file, index=False)
     print(df.head())
 
