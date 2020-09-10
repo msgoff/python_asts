@@ -1,0 +1,403 @@
+line_no,col_offset,type,name,file_name
+14,-1,Expr,<class '_ast.Str'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+16,0,import,sympy,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+17,0,importFrom,"('sympy', 'tan')",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+18,0,importFrom,"('sympy', '*')",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+19,0,importFrom,"('sympy.vector', 'cross')",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+20,0,importFrom,"('sympy.vector.deloperator', 'Del')",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+21,0,importFrom,"('sympy.parsing.latex', 'parse_latex')",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+22,0,importFrom,"('typing', 'Tuple')",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+23,0,import,logging,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+24,0,import,random,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+25,0,import,re,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+26,0,import,os,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+29,0,import,shutil,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+31,0,importFrom,"('subprocess', 'PIPE')",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+32,0,import,subprocess,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+35,0,importFrom,"('sympy.physics.quantum.dagger', 'Dagger')",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+36,0,importFrom,"('sympy.physics.quantum.state', 'Ket')",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+37,0,importFrom,"('sympy.physics.quantum.operator', 'Operator')",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+39,0,Assign,"([<_ast.Name object at 0x80516a8d0>], <_ast.Call object at 0x80516ac10>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+39,9,call,logging.getLogger,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+41,0,Assign,"([<_ast.Name object at 0x80516a3d0>], <_ast.Num object at 0x80516a050>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+41,15,Num,30,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+54,0,FunctionDef,create_AST_png_for_latex,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+60,-1,Expr,<class '_ast.Str'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+61,4,Assign,"([<_ast.Name object at 0x80516abd0>], <_ast.Call object at 0x80516aa90>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+61,15,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+61,19,call,random.randint,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+61,34,Num,1000000,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+61,43,Num,9999999,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+62,16,BinOp,"(<_ast.Str object at 0x80516a610>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x80516a510>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+62,4,call,logger.info,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+62,43,BinOp,"(<_ast.BinOp object at 0x80516a490>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x80516a110>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+62,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+65,8,Assign,"([<_ast.Name object at 0x80516a090>], <_ast.Call object at 0x80516a150>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+65,19,call,parse_latex,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+67,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+67,8,call,logger.error,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+68,24,BinOp,"(<_ast.Str object at 0x80516ac90>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x80516acd0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+68,14,call,Exception,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+69,8,Assign,"([<_ast.Name object at 0x80516af90>], <_ast.Str object at 0x80516a0d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+70,4,Assign,"([<_ast.Name object at 0x805179d50>], <_ast.Call object at 0x805179c10>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+71,4,Assign,"([<_ast.Name object at 0x805179d10>], <_ast.Str object at 0x805179dd0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+72,9,call,open,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+73,8,call,fil.write,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+73,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+76,26,BinOp,"(<_ast.Str object at 0x805179310>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x8051791d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+77,8,Assign,"([<_ast.Name object at 0x805179150>], <_ast.Call object at 0x805179210>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+77,18,call,subprocess.run,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+78,43,BinOp,"(<_ast.Str object at 0x8051795d0>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x8051798d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+83,8,Assign,"([<_ast.Name object at 0x805179890>], <_ast.Call object at 0x805179c90>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+84,11,call,len,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+84,31,Num,0,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+85,12,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+85,12,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+86,8,Assign,"([<_ast.Name object at 0x805182b10>], <_ast.Call object at 0x805182510>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+87,31,Num,0,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+87,11,call,len,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+88,12,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+88,12,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+90,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+90,8,call,shutil.move,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+90,37,BinOp,"(<_ast.Str object at 0x805182fd0>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x805182c50>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+91,16,BinOp,"(<_ast.Str object at 0x805182a10>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x805182350>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+91,4,call,logger.info,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+91,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+91,41,BinOp,"(<_ast.BinOp object at 0x805182a50>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x805182a90>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+92,4,Return,<class '_ast.Name'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+95,0,FunctionDef,list_symbols_used_in_latex_from_sympy,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+103,-1,Expr,<class '_ast.Str'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+104,43,Num,9999999,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+104,34,Num,1000000,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+104,19,call,random.randint,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+104,15,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+104,4,Assign,"([<_ast.Name object at 0x805182250>], <_ast.Call object at 0x805182210>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+105,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+105,4,call,logger.info,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+105,43,BinOp,"(<_ast.BinOp object at 0x80518e150>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x80518e810>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+105,16,BinOp,"(<_ast.Str object at 0x80518ed90>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x80518eb10>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+106,4,Assign,"([<_ast.Name object at 0x80518e9d0>], <_ast.List object at 0x80518e550>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+107,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+107,4,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+107,17,BinOp,"(<_ast.Str object at 0x80518ef50>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x80518ee10>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+109,8,Assign,"([<_ast.Name object at 0x80518ecd0>], <_ast.Call object at 0x80518e990>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+109,19,call,parse_latex,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+111,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+111,8,call,logger.error,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+112,14,call,Exception,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+112,24,BinOp,"(<_ast.Str object at 0x80518e710>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x80518e890>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+114,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+114,8,call,logger.error,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+115,14,call,Exception,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+115,24,BinOp,"(<_ast.Str object at 0x80518e510>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x80518e950>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+117,16,call,symp_lat.atoms,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+118,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+118,8,call,list_of_symbols.append,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+118,31,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+119,4,Assign,"([<_ast.Name object at 0x805186a50>], <_ast.Call object at 0x805186b50>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+119,22,call,list,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+119,27,call,set,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+120,39,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+120,4,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+120,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+120,17,BinOp,"(<_ast.Str object at 0x805186550>, <_ast.Add object at 0x80101f750>, <_ast.Call object at 0x805186750>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+121,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+121,4,call,logger.info,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+121,41,BinOp,"(<_ast.BinOp object at 0x805186f90>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x8051862d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+121,16,BinOp,"(<_ast.Str object at 0x805186590>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x805186910>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+122,4,Return,<class '_ast.Name'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+125,0,FunctionDef,get_sympy_expr_from_AST_str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+135,-1,Expr,<class '_ast.Str'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+139,4,Assign,"([<_ast.Name object at 0x805186610>], <_ast.Call object at 0x8051865d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+139,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+140,4,Assign,"([<_ast.Name object at 0x805186090>], <_ast.Call object at 0x8051861d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+140,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+141,4,Assign,"([<_ast.Name object at 0x805186950>], <_ast.Call object at 0x805186c10>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+141,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+142,4,Assign,"([<_ast.Name object at 0x80516add0>], <_ast.Call object at 0x805179a50>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+142,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+143,4,Assign,"([<_ast.Name object at 0x8051a6a50>], <_ast.Call object at 0x8051a6690>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+143,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+144,4,Assign,"([<_ast.Name object at 0x8051a6490>], <_ast.Call object at 0x8051a68d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+144,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+145,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+145,4,Assign,"([<_ast.Name object at 0x8051a67d0>], <_ast.Call object at 0x8051a6890>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+148,4,Assign,"([<_ast.Name object at 0x8051a6c50>], <_ast.Call object at 0x8051a6d10>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+148,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+149,4,Assign,"([<_ast.Name object at 0x8051a6050>], <_ast.Call object at 0x8051a6150>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+149,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+150,4,Assign,"([<_ast.Name object at 0x8051a6610>], <_ast.Call object at 0x8051a6410>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+150,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+151,4,Assign,"([<_ast.Name object at 0x8051a6310>], <_ast.Call object at 0x8051a6f10>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+151,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+152,4,Assign,"([<_ast.Name object at 0x8051a6750>], <_ast.Call object at 0x8051a6250>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+152,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+153,4,Assign,"([<_ast.Name object at 0x8051a6fd0>], <_ast.Call object at 0x8051b7290>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+153,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+154,4,Assign,"([<_ast.Name object at 0x8051b7390>], <_ast.Call object at 0x8051b7810>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+154,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+155,4,Assign,"([<_ast.Name object at 0x8051b7e90>], <_ast.Call object at 0x8051b7fd0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+155,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+156,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+156,4,Assign,"([<_ast.Name object at 0x8051b7cd0>], <_ast.Call object at 0x8051b75d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+157,4,Assign,"([<_ast.Name object at 0x8051b7350>], <_ast.Call object at 0x8051b7190>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+157,14,call,ast_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+160,8,Return,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+160,15,call,eval,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+162,21,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+162,8,call,logger.error,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+162,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+163,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+163,8,call,logger.error,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+163,58,BinOp,"(<_ast.BinOp object at 0x8051b7ad0>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x8051b7950>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+163,21,BinOp,"(<_ast.Str object at 0x8051b7310>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x8051b72d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+164,61,BinOp,"(<_ast.BinOp object at 0x8051b77d0>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x8051bded0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+164,14,call,Exception,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+164,24,BinOp,"(<_ast.Str object at 0x8051b7c50>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x8051bda50>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+165,4,Return,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+165,11,call,sympy.Symbol,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+168,0,FunctionDef,get_symbol_IDs_from_AST_str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+175,-1,Expr,<class '_ast.Str'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+179,4,Assign,"([<_ast.Name object at 0x8051bdcd0>], <_ast.Call object at 0x8051bdc90>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+179,22,call,re.findall,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+180,4,Assign,"([<_ast.Name object at 0x8051bd8d0>], <_ast.Call object at 0x8051bd350>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+180,22,call,list,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+180,27,call,set,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+181,4,Assign,"([<_ast.Name object at 0x8051bd510>], <_ast.ListComp object at 0x8051bd5d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+181,23,call,x.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+183,4,Return,<class '_ast.Name'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+186,0,FunctionDef,get_symbol_IDs_from_AST_str_OLDNOTINUSE,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+193,-1,Expr,<class '_ast.Str'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+196,4,Assign,"([<_ast.Name object at 0x8051bd810>], <_ast.List object at 0x8051bd4d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+197,7,NameConstant,True,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+198,11,call,len,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+198,26,Num,0,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+198,36,call,ast_str.startswith,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+200,12,Assign,"([<_ast.Name object at 0x8051f77d0>], <_ast.Call object at 0x8051f7910>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+200,19,call,get_sympy_expr_from_AST_str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+202,12,Assign,"([<_ast.Name object at 0x8051f7a50>], <_ast.ListComp object at 0x8051f7790>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+203,16,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+204,25,call,list,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+205,19,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+210,16,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+210,16,call,list_of_symbols.append,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+214,12,Assign,"([<_ast.Name object at 0x8051f7250>], <_ast.ListComp object at 0x8051f70d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+215,16,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+216,25,call,ast_str.split,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+217,19,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+220,4,Return,<class '_ast.Name'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+223,0,FunctionDef,remove_latex_presention_markings,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+231,-1,Expr,<class '_ast.Str'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+232,4,Assign,"([<_ast.Name object at 0x805249f10>], <_ast.Call object at 0x805249790>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+232,15,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+232,19,call,random.randint,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+232,34,Num,1000000,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+232,43,Num,9999999,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+233,16,BinOp,"(<_ast.Str object at 0x805249c10>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x805249e50>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+233,4,call,logger.info,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+233,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+233,43,BinOp,"(<_ast.BinOp object at 0x805249950>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x805249610>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+235,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+235,4,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+235,17,BinOp,"(<_ast.Str object at 0x805249910>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x805249290>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+238,8,Assign,"([<_ast.Name object at 0x8052492d0>], <_ast.Call object at 0x805249050>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+238,25,call,latex_expr_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+240,8,Assign,"([<_ast.Name object at 0x805249750>], <_ast.Call object at 0x805249a90>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+240,25,call,latex_expr_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+242,8,Assign,"([<_ast.Name object at 0x805249ad0>], <_ast.Call object at 0x8052567d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+242,25,call,latex_expr_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+244,8,Assign,"([<_ast.Name object at 0x805256390>], <_ast.Call object at 0x805256990>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+244,25,call,latex_expr_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+246,8,Assign,"([<_ast.Name object at 0x805256f50>], <_ast.Call object at 0x805256790>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+246,25,call,latex_expr_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+248,8,Assign,"([<_ast.Name object at 0x805256410>], <_ast.Call object at 0x805256290>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+248,25,call,latex_expr_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+250,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+250,8,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+251,8,Assign,"([<_ast.Name object at 0x805256890>], <_ast.Call object at 0x805256b10>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+251,25,call,latex_expr_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+253,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+253,8,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+254,8,Assign,"([<_ast.Name object at 0x80525ff50>], <_ast.Call object at 0x80525fb90>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+254,25,call,latex_expr_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+256,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+256,8,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+257,8,Assign,"([<_ast.Name object at 0x80525fe50>], <_ast.Call object at 0x80525fdd0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+257,25,call,latex_expr_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+259,8,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+259,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+260,8,Assign,"([<_ast.Name object at 0x80525f410>], <_ast.Call object at 0x80525f650>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+260,25,call,latex_expr_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+262,8,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+262,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+263,8,Assign,"([<_ast.Name object at 0x80525fa10>], <_ast.Call object at 0x80525f850>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+263,25,call,latex_expr_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+265,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+265,8,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+266,25,call,latex_expr_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+266,8,Assign,"([<_ast.Name object at 0x8052629d0>], <_ast.Call object at 0x805262850>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+268,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+268,8,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+269,8,Assign,"([<_ast.Name object at 0x805262f50>], <_ast.Call object at 0x805262350>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+269,25,call,latex_expr_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+271,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+271,8,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+272,8,Assign,"([<_ast.Name object at 0x805262110>], <_ast.Call object at 0x805262290>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+272,25,call,latex_expr_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+278,4,Assign,"([<_ast.Name object at 0x805262510>], <_ast.Call object at 0x805262690>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+278,17,call,re.findall,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+280,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+280,8,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+281,8,Assign,"([<_ast.Name object at 0x805262790>], <_ast.Call object at 0x805262d10>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+282,12,call,this_match.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+284,8,Assign,"([<_ast.Name object at 0x805266690>], <_ast.Call object at 0x805266e10>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+284,25,call,latex_expr_str.replace,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+284,60,BinOp,"(<_ast.Str object at 0x805266b50>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x805266ed0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+286,17,BinOp,"(<_ast.Str object at 0x805266a50>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x805266950>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+286,4,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+286,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+288,4,Return,<class '_ast.Name'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+291,0,FunctionDef,create_sympy_expr_tree_from_latex,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+298,-1,Expr,<class '_ast.Str'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+299,43,Num,9999999,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+299,34,Num,1000000,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+299,19,call,random.randint,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+299,15,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+299,4,Assign,"([<_ast.Name object at 0x805266650>], <_ast.Call object at 0x8052665d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+300,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+300,4,call,logger.info,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+300,43,BinOp,"(<_ast.BinOp object at 0x805266710>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x805266a10>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+300,16,BinOp,"(<_ast.Str object at 0x8052668d0>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x805266610>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+302,21,call,remove_latex_presention_markings,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+302,4,Assign,"([<_ast.Name object at 0x805266590>], <_ast.Call object at 0x805266d50>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+304,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+304,4,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+306,8,Assign,"([<_ast.Name object at 0x805268750>], <_ast.Call object at 0x805268550>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+306,21,call,parse_latex,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+308,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+308,8,call,logger.error,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+308,21,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+309,8,Assign,"([<_ast.Name object at 0x805268bd0>], <_ast.Call object at 0x805268b90>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+309,21,call,parse_latex,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+311,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+311,4,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+311,42,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+313,4,Assign,"([<_ast.Name object at 0x8052685d0>], <_ast.Call object at 0x805268450>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+313,31,call,sympy.srepr,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+314,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+314,4,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+315,41,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+318,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+318,4,call,logger.info,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+318,41,BinOp,"(<_ast.BinOp object at 0x805268c10>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x805268050>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+318,16,BinOp,"(<_ast.Str object at 0x805268cd0>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x805268950>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+319,4,Return,<class '_ast.Name'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+322,0,FunctionDef,get_symbols_from_latex,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+331,-1,Expr,<class '_ast.Str'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+332,4,Assign,"([<_ast.Name object at 0x805272450>], <_ast.Call object at 0x8052724d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+332,15,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+332,19,call,random.randint,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+332,34,Num,1000000,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+332,43,Num,9999999,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+333,16,BinOp,"(<_ast.Str object at 0x805272090>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x805272350>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+333,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+333,4,call,logger.info,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+333,43,BinOp,"(<_ast.BinOp object at 0x8052726d0>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x8052723d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+335,4,Assign,"([<_ast.Name object at 0x805272110>], <_ast.Call object at 0x805272050>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+335,21,call,remove_latex_presention_markings,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+337,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+337,4,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+338,4,Assign,"([<_ast.Name object at 0x805272890>], <_ast.Call object at 0x8052722d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+338,13,call,list,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+338,18,call,parse_latex,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+339,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+339,4,call,logger.info,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+339,41,BinOp,"(<_ast.BinOp object at 0x805272b10>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x805272d90>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+339,16,BinOp,"(<_ast.Str object at 0x805272b50>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x8052727d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+340,4,Return,<class '_ast.Name'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+343,0,FunctionDef,split_expr_into_lhs_rhs,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+354,-1,Expr,<class '_ast.Str'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+355,34,Num,1000000,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+355,19,call,random.randint,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+355,43,Num,9999999,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+355,4,Assign,"([<_ast.Name object at 0x80526c150>], <_ast.Call object at 0x80526ce90>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+355,15,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+356,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+356,4,call,logger.info,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+356,43,BinOp,"(<_ast.BinOp object at 0x80526cb50>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x80526c490>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+356,16,BinOp,"(<_ast.Str object at 0x80526c290>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x80526c5d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+358,21,call,remove_latex_presention_markings,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+358,4,Assign,"([<_ast.Name object at 0x80526c2d0>], <_ast.Call object at 0x80526c390>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+360,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+360,4,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+363,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+363,8,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+363,21,BinOp,"(<_ast.Str object at 0x80526c0d0>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x80526cf10>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+364,8,Assign,"([<_ast.Name object at 0x80526cbd0>], <_ast.Call object at 0x80526ce50>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+364,24,call,latex_expr_str.split,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+365,11,call,len,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+365,33,Num,2,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+366,30,call,remove_latex_presention_markings,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+366,12,Assign,"([<_ast.Name object at 0x8052761d0>], <_ast.Call object at 0x8052760d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+366,18,call,parse_latex,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+366,77,Num,0,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+367,77,Num,1,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+367,30,call,remove_latex_presention_markings,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+367,18,call,parse_latex,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+367,12,Assign,"([<_ast.Name object at 0x801031fd0>], <_ast.Call object at 0x80103ad90>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+368,12,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+368,12,call,logger.info,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+368,49,BinOp,"(<_ast.BinOp object at 0x804e28b90>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x804e28110>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+368,24,BinOp,"(<_ast.Str object at 0x804e28b10>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x804e28050>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+369,12,Return,<class '_ast.Tuple'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+371,18,call,Exception,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+372,16,BinOp,"(<_ast.Str object at 0x804e28410>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x804e284d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+376,14,call,Exception,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+376,24,BinOp,"(<_ast.Str object at 0x804e281d0>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x804e28610>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+379,12,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+379,12,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+380,25,call,parse_latex,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+380,12,Assign,"([<_ast.Name object at 0x804e288d0>], <_ast.Call object at 0x804e28910>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+382,12,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+382,12,call,logger.error,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+382,25,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+383,12,Return,<class '_ast.Tuple'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+385,46,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+385,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+385,8,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+387,8,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+387,8,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+387,21,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+387,25,call,sympy.srepr,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+390,12,Assign,"([<_ast.Name object at 0x804e22bd0>], <_ast.Attribute object at 0x804e22c10>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+391,36,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+391,25,BinOp,"(<_ast.Str object at 0x804e22a90>, <_ast.Add object at 0x80101f750>, <_ast.Call object at 0x804e22850>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+391,12,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+391,12,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+392,12,Assign,"([<_ast.Name object at 0x804e22e10>], <_ast.Attribute object at 0x804e22fd0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+393,12,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+393,12,call,logger.debug,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+393,25,BinOp,"(<_ast.Str object at 0x804e222d0>, <_ast.Add object at 0x80101f750>, <_ast.Call object at 0x804e22310>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+393,36,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+394,24,BinOp,"(<_ast.Str object at 0x804e22550>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x804e22590>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+394,49,BinOp,"(<_ast.BinOp object at 0x804e22510>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x804e225d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+394,12,call,logger.info,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+394,12,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+395,12,Return,<class '_ast.Tuple'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+397,12,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+397,12,call,logger.error,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+398,16,BinOp,"(<_ast.Str object at 0x804e25350>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x804e25390>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+400,16,BinOp,"(<_ast.BinOp object at 0x804e252d0>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x804e25610>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+401,18,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+401,16,BinOp,"(<_ast.BinOp object at 0x804e25290>, <_ast.Add object at 0x80101f750>, <_ast.Call object at 0x804e25650>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+403,18,call,Exception,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+404,16,BinOp,"(<_ast.Str object at 0x804e25410>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x804e25450>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+406,16,BinOp,"(<_ast.BinOp object at 0x804e253d0>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x804e25490>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+407,16,BinOp,"(<_ast.BinOp object at 0x804e25810>, <_ast.Add object at 0x80101f750>, <_ast.Call object at 0x804e254d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+407,18,call,str,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+409,4,Expr,<class '_ast.Call'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+409,4,call,logger.info,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+409,41,BinOp,"(<_ast.BinOp object at 0x804e25050>, <_ast.Add object at 0x80101f750>, <_ast.Str object at 0x804e250d0>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+409,16,BinOp,"(<_ast.Str object at 0x804e25090>, <_ast.Add object at 0x80101f750>, <_ast.Name object at 0x804e25150>)",/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
+410,4,Return,<class '_ast.Tuple'>,/home/user/proofofconcept/v7_pickle_web_interface/flask/latex_to_sympy.py
