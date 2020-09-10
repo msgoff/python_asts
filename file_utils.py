@@ -1,4 +1,4 @@
-def listfiles(folder, file_type='.py', skip_venv=True):
+def listfiles(folder, file_type=".py", skip_venv=True):
     import os
     import re
 
@@ -23,18 +23,23 @@ def listfiles(folder, file_type='.py', skip_venv=True):
                 else:
                     if not os.path.isdir(root + filename):
                         yield os.path.join(root, filename)
+
+
 def read_config():
-    import yaml 
-    with open('config.yaml', 'r') as f: 
-        config = yaml.load(f) 
+    import yaml
+
+    with open("config.yaml", "r") as f:
+        config = yaml.load(f)
     if config:
         return config
+
 
 def process_file(file_name, output_file):
     import ast
     from ast_test import FuncLister
     import pandas as pd
     import re
+
     data = read_file(file_name)
     tree = ast.parse(data)
     X = FuncLister()
@@ -43,10 +48,15 @@ def process_file(file_name, output_file):
     # df = X.filters(df, "name", "")
     df["file_name"] = str(file_name)
     df.sort_values("line_no", inplace=True)
-    df= df[df['type'].apply(lambda x: True if not re.findall('Str|docstring|BinOp',str(x)) else False)]
-    df.to_csv(output_file,index=False)
+    df = df[
+        df["type"].apply(
+            lambda x: True if not re.findall("Str|docstring|BinOp", str(x)) else False
+        )
+    ]
+    df.to_csv(output_file, index=False)
     print(df.head())
-    
+
+
 def read_file(filename):
     # https://github.com/jendrikseipp/vulture
     # vulture - Find dead code.

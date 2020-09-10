@@ -477,6 +477,7 @@ if __name__ == "__main__":
     from file_utils import listfiles
     from file_utils import process_file
     from file_utils import read_config
+
     if len(argv) > 1:
         process_file(argv[1], argv[2])
 
@@ -485,10 +486,11 @@ if __name__ == "__main__":
         import time
         import os
         import shutil
-        config =read_config()
-        exclude = config['exclude']['path']       
-        output_file_name = config['output_file_name'][0]
-        project_path = config['project_path'][0]
+
+        config = read_config()
+        exclude = config["exclude"]["path"]
+        output_file_name = config["output_file_name"][0]
+        project_path = config["project_path"][0]
 
         to_be_processed = []
         files = [x for x in listfiles(project_path) if x.endswith(".py")]
@@ -508,7 +510,7 @@ if __name__ == "__main__":
                 )
                 os.unlink(output_file_name)
             try:
-                #print(file_name)
+                # print(file_name)
                 process_file(file_name, output_file_name)
             except Exception as err:
                 print(err)
