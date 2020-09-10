@@ -1,5 +1,18 @@
 #!/usr/bin/env python3
 
+"""
+To use:
+
+    ./dot_file_from_df.py path+input_csv_file_name output_file_name
+
+results in call graph only; see
+https://github.com/msgoff/python_asts/blob/master/examples/app.png
+and
+https://github.com/msgoff/python_asts/blob/master/examples/app.dot
+
+"""
+
+
 from sys import argv
 
 import pygraphviz as pgv
