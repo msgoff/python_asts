@@ -4,13 +4,18 @@ from os import chdir
 from file_utils import listfiles
 import re
 import ast
+
+
 def count_directory_depth(file_name):
-    return file_name.count('/')
-project_path='/home/user/proofofconcept/v7_pickle_web_interface'
+    return file_name.count("/")
 
 
+project_path = "/home/user/proofofconcept/v7_pickle_web_interface"
 
-print_func = True 
+
+print_func = True
+
+
 def print_func_name(func):
     def print_func_name_(*func_args, **func_kwargs):
         import inspect
@@ -481,24 +486,23 @@ if __name__ == "__main__":
     import time
     import os
     import shutil
+
     to_be_processed = []
-    #sort on depth of directories in ascending order
+    # sort on depth of directories in ascending order
     file_lst = sorted(
-            list(
-                listfiles(project_path)),
-            key=lambda x: count_directory_depth(x)
-            )
-    
+        list(listfiles(project_path)), key=lambda x: count_directory_depth(x)
+    )
+
     for file_name in file_lst:
         # if output_file_name previously exists
-        output_file_name = file_name.replace('.py','.csv')
+        output_file_name = file_name.replace(".py", ".csv")
         if os.path.isfile(output_file_name):
             shutil.copy(
-                    "{}".format(output_file_name),
-                    "{}_{}.csv".format(output_file_name, time.time()),
-                )
+                "{}".format(output_file_name),
+                "{}_{}.csv".format(output_file_name, time.time()),
+            )
             os.unlink(output_file_name)
         try:
-                process_file(file_name, output_file_name)
+            process_file(file_name, output_file_name)
         except Exception as err:
-                print(err)
+            print(err)
