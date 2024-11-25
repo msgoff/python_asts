@@ -7,11 +7,13 @@ import inspect
 import pandas as pd
 from sys import argv
 
+
 def count_directory_depth(file_name):
     return file_name.count("/")
 
+
 if len(argv) != 2:
-    print('input project path to scan')
+    print("input project path to scan")
     exit()
 project_path = argv[1]
 
