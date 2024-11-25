@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # https://greentreesnakes.readthedocs.io/en/latest/manipulating.html
-from os import chdir
 from file_utils import listfiles
 import re
 import ast
+import inspect
+import pandas as pd
 
 
 def count_directory_depth(file_name):
@@ -18,8 +19,6 @@ print_func = True
 
 def print_func_name(func):
     def print_func_name_(*func_args, **func_kwargs):
-        import inspect
-        import re
 
         current_function_name = func.__name__
         if current_function_name:
@@ -33,8 +32,6 @@ def print_func_name(func):
 
 class FuncLister(ast.NodeVisitor):
     def __init__(self):
-        import inspect
-        import re
 
         self.inspect = inspect
         self.re = re
@@ -64,8 +61,6 @@ class FuncLister(ast.NodeVisitor):
         self.generic_visit(node)
 
     def visit_Assign(self, node):
-        import inspect
-        import re
 
         current_function_name = inspect.currentframe().f_code.co_name
         if current_function_name:
@@ -445,8 +440,6 @@ class FuncLister(ast.NodeVisitor):
             )
 
     def filters(self, df, column, pattern):
-        import pandas as pd
-        import re
 
         df.loc[:, column] = df.loc[:, column][
             df.loc[:, column].apply(
@@ -457,7 +450,6 @@ class FuncLister(ast.NodeVisitor):
         return df
 
     def output_DataFrame(self):
-        import pandas as pd
 
         df = pd.DataFrame(self.lst)
         df.columns = ["line_no", "col_offset", "type", "name"]
@@ -465,13 +457,14 @@ class FuncLister(ast.NodeVisitor):
 
 
 def df_query(query_string, df):
-    import re
 
     df[
         df.apply(
-            lambda row: True
-            if re.findall(query_string, str(row.astype(str)), re.IGNORECASE)
-            else False,
+            lambda row: (
+                True
+                if re.findall(query_string, str(row.astype(str)), re.IGNORECASE)
+                else False
+            ),
             axis=1,
         )
     ]
@@ -479,10 +472,7 @@ def df_query(query_string, df):
 
 
 if __name__ == "__main__":
-    from file_utils import read_file
-    from file_utils import listfiles
     from file_utils import process_file
-    import re
     import time
     import os
     import shutil

@@ -4,6 +4,7 @@ of your Python application.
 
 See http://pycallgraph.slowchop.com/ for more information.
 """
+
 from .metadata import __version__
 from .metadata import __copyright__
 from .metadata import __license__

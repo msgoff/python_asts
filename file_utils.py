@@ -1,6 +1,11 @@
+from ast_test import FuncLister
+import ast
+import os
+import re
+import yaml
+
+
 def listfiles(folder, file_type=".py", skip_venv=True):
-    import os
-    import re
 
     for root, folders, files in os.walk(folder):
         for filename in folders + files:
@@ -26,7 +31,6 @@ def listfiles(folder, file_type=".py", skip_venv=True):
 
 
 def read_config():
-    import yaml
 
     with open("config.yaml", "r") as f:
         config = yaml.load(f)
@@ -35,10 +39,6 @@ def read_config():
 
 
 def process_file(file_name, output_file):
-    import ast
-    from ast_test import FuncLister
-    import pandas as pd
-    import re
 
     data = read_file(file_name)
     tree = ast.parse(data)
@@ -53,12 +53,8 @@ def process_file(file_name, output_file):
             lambda x: True if not re.findall("Str|docstring|BinOp", str(x)) else False
         )
     ]
-    
-    df = df[
-        df["type"].apply(
-            lambda x: True if  re.findall("call", str(x)) else False
-        )
-    ]
+
+    df = df[df["type"].apply(lambda x: True if re.findall("call", str(x)) else False)]
     df.to_csv(output_file, index=False)
     print(df.head())
 

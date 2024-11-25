@@ -6,7 +6,6 @@ import textwrap
 import subprocess as sub
 
 
-
 class Output(object):
     """Base class for all outputters."""
 
@@ -119,7 +118,11 @@ class Output(object):
     @classmethod
     def add_output_file(cls, subparser, defaults, help):
         subparser.add_argument(
-            "-o", "--output-file", type=str, default=defaults.output_file, help=help,
+            "-o",
+            "--output-file",
+            type=str,
+            default=defaults.output_file,
+            help=help,
         )
 
 
@@ -177,7 +180,6 @@ class Color(object):
     def rgb_csv(self):
         """Returns a string with the RGB components as CSV."""
         return "{0.r255},{0.g255},{0.b255}".format(self)
-
 
 
 class PyCallGraphException(Exception):
@@ -303,7 +305,8 @@ class GraphvizOutput(Output):
 
         self.verbose(
             "Generated {0} with {1} nodes.".format(
-                self.output_file, len(self.processor.func_count),
+                self.output_file,
+                len(self.processor.func_count),
             )
         )
 
@@ -345,17 +348,26 @@ class GraphvizOutput(Output):
         return ", ".join(output)
 
     def node(self, key, attr):
-        return '"{0}" [{1}];'.format(key, self.attrs_from_dict(attr),)
+        return '"{0}" [{1}];'.format(
+            key,
+            self.attrs_from_dict(attr),
+        )
 
     def edge(self, edge, attr):
         return '"{0.src_func}" -> "{0.dst_func}" [{1}];'.format(
-            edge, self.attrs_from_dict(attr),
+            edge,
+            self.attrs_from_dict(attr),
         )
 
     def generate_attributes(self):
         output = []
         for section, attrs in self.graph_attributes.items():
-            output.append("{0} [ {1} ];".format(section, self.attrs_from_dict(attrs),))
+            output.append(
+                "{0} [ {1} ];".format(
+                    section,
+                    self.attrs_from_dict(attrs),
+                )
+            )
         return output
 
     def generate_groups(self):
