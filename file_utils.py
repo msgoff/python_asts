@@ -47,13 +47,13 @@ def process_file(file_name, output_file=False):
     # df = X.filters(df, "name", "")
     df["file_name"] = str(file_name)
     df.sort_values("line_no", inplace=True)
-    df = df[
-        df["type"].apply(
-            lambda x: True if not re.findall("Str|docstring|BinOp", str(x)) else False
-        )
-    ]
+    # df = df[
+    #    df["type"].apply(
+    #        lambda x: True if not re.findall("Str|docstring|BinOp", str(x)) else False
+    #    )
+    # ]
 
-    df = df[df["type"].apply(lambda x: True if re.findall("call", str(x)) else False)]
+    # df = df[df["type"].apply(lambda x: True if re.findall("call", str(x)) else False)]
     if output_file:
         df.to_csv(output_file, index=False)
     else:
