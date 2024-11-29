@@ -481,6 +481,7 @@ if __name__ == "__main__":
     import os
     import shutil
 
+    zf = pd.DataFrame()
     to_be_processed = []
     # sort on depth of directories in ascending order
     file_lst = sorted(
@@ -497,6 +498,15 @@ if __name__ == "__main__":
             )
             os.unlink(output_file_name)
         try:
-            process_file(file_name, output_file_name)
+            df = process_file(file_name, False)
+            if len(zf) == 0:
+                zf = df
+            else:
+                zf = pd.concat([df, zf])
+            print(zf.head())
         except Exception as err:
             print(err)
+    now = int(time.time())
+    zf.file_name = zf.file_name.apply(lambda x: re.sub(argv[1], "", x))
+    print(len(zf))
+    zf.to_csv(f"results_{now}.csv", index=False)

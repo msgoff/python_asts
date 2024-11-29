@@ -38,8 +38,7 @@ def read_config():
         return config
 
 
-def process_file(file_name, output_file):
-
+def process_file(file_name, output_file=False):
     data = read_file(file_name)
     tree = ast.parse(data)
     X = FuncLister()
@@ -55,8 +54,10 @@ def process_file(file_name, output_file):
     ]
 
     df = df[df["type"].apply(lambda x: True if re.findall("call", str(x)) else False)]
-    df.to_csv(output_file, index=False)
-    print(df.head())
+    if output_file:
+        df.to_csv(output_file, index=False)
+    else:
+        return df
 
 
 def read_file(filename):
