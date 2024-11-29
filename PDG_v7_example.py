@@ -515,4 +515,4 @@ if __name__ == "__main__":
         ascending=False
     ).to_csv(f"groupby_type_name_{now}.csv")
     zf.to_csv(f"results_{now}.csv", index=False)
-    print(f"results save in  groupby_type_name_{now}.csv and results_{now}.csv")
+    print(f"results saved in groupby_type_name_{now}.csv and results_{now}.csv")
