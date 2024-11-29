@@ -509,4 +509,10 @@ if __name__ == "__main__":
     now = int(time.time())
     zf.file_name = zf.file_name.apply(lambda x: re.sub(argv[1], "", x))
     print(len(zf))
+    test_df = zf.loc[:, ["type", "name"]]
+    test_df.name = test_df.name.apply(str)
+    test_df.groupby(["type", "name"]).value_counts().sort_values(
+        ascending=False
+    ).to_csv(f"groupby_type_name_{now}.csv")
     zf.to_csv(f"results_{now}.csv", index=False)
+    print(f"results save in  groupby_type_name_{now}.csv and results_{now}.csv")
